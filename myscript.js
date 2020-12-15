@@ -53,7 +53,7 @@ $(document).ready(function () {
         },
         pollInterval = setInterval(function () {
             poll();
-        }, 20000);
+        }, 4000);
 
 });
 
