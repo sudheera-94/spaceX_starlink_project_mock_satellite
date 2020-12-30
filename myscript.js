@@ -1,3 +1,5 @@
+var deploymentIp = "http://127.0.0.1";
+
 $(document).ready(function () {
 
     function sendReducedHealth(data) {
@@ -23,7 +25,7 @@ $(document).ready(function () {
 
                 $.ajax({
                     type: 'POST',
-                    url: 'http://127.0.0.1:8000/add/',
+                    url: deploymentIp + ':8000/add/',
                     data: item,
                     dataType: 'json',
                     encode: true
@@ -38,7 +40,7 @@ $(document).ready(function () {
         poll = function () {
             $.ajax({
                 type: "GET",
-                url: "http://127.0.0.1:8000/add" + "?&format=json&jsoncallback=?",
+                url: deploymentIp + ":8000/add" + "?&format=json&jsoncallback=?",
                 contentType: "application/json",
                 crossDomain: true,
                 success: function (data) {
@@ -53,7 +55,7 @@ $(document).ready(function () {
         },
         pollInterval = setInterval(function () {
             poll();
-        }, 4000);
+        }, 8000);
 
 });
 
